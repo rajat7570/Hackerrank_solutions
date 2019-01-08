@@ -1,0 +1,22 @@
+// Complete the minimumSwaps function below.
+int minimumSwaps(vector<int> arr) {
+    long i,j=0;
+    long min = 0;
+    for(i=0;i<arr.size();i++){
+        if(arr[i]==i+1){
+            continue;
+        }
+        else{
+            for(j=i+1;j<arr.size();j++){
+                if(arr[j]==i+1){
+                    swap(arr[i],arr[j]);
+                    min++;
+                    break;
+                }
+            }
+        }
+
+    }
+    return min;
+
+}
