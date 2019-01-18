@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// Complete the jimOrders function below.
+vector<int> jimOrders(vector<vector<int>> orders) {
+ vector<int> v,sum,ord;
+ for(int i=0;i<orders.size();i++){
+    sum.push_back(orders[i][0]+orders[i][1]);
+ }
+ v = sum;
+sort(sum.begin(),sum.end());
+ int index;
+ for(int i=0;i<sum.size();i++){
+     for(int j=0;j<v.size();j++){
+         if(v[j]==sum[i]){
+             index = j+1;
+            if(find(ord.begin(),ord.end(),index)==ord.end()){
+                 ord.push_back(index); 
+                continue;
+            }
+            else{
+                break;
+            }
+         }
+    }
+}
+
+
+return ord;
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    int n;
+    cin >> n;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    vector<vector<int>> orders(n);
+    for (int i = 0; i < n; i++) {
+        orders[i].resize(2);
+
+        for (int j = 0; j < 2; j++) {
+            cin >> orders[i][j];
+        }
+
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    vector<int> result = jimOrders(orders);
+
+    for (int i = 0; i < result.size(); i++) {
+        fout << result[i];
+
+        if (i != result.size() - 1) {
+            fout << " ";
+        }
+    }
+
+    fout << "\n";
+
+    fout.close();
+
+    return 0;
+}
