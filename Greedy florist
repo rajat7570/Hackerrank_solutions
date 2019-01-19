@@ -1,0 +1,19 @@
+// Complete the getMinimumCost function below.
+int getMinimumCost(int k, vector<int> c) {
+sort(c.rbegin(),c.rend());
+long long unsigned int sum=0;
+for(int i=0;i<k;i++){
+    sum = sum + c[i];
+}
+int j=1;
+int count=0;
+for(int i=k;i<c.size();i++){
+    sum = sum + (j+1)*c[i];
+    count++;
+    if(count==k){
+     count=0;   
+    j++;
+    }
+}
+return sum;
+}
