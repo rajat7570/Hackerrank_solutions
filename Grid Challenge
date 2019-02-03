@@ -1,0 +1,25 @@
+// Complete the gridChallenge function below.
+string gridChallenge(vector<string> grid) {
+    int count = 0;
+vector<char> v[grid.size()];
+for(int j=0;j<grid.size();j++){
+   for(int i=0;i<grid[j].length();i++){
+    v[j].push_back(grid[j][i]);
+   }
+  }
+  for(int k=0;k<grid.size();k++){
+      sort(v[k].begin(),v[k].end());
+  }
+  for(int j=0;j<grid.size();j++){
+     for(int i=0;i<grid.size()-1;i++){ 
+      if(v[i][j]>v[i+1][j]){
+          count++;
+          break;
+      }
+    }
+  }
+  if(count==0)
+    return "YES";
+   else
+    return "NO"; 
+}
