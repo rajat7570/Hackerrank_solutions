@@ -1,0 +1,9 @@
+int maxMin(int k, vector<int> arr) {
+    sort(arr.begin(),arr.end());
+    long diff = arr[k-1]-arr[0];
+    for(int i=1;i<=arr.size()-k;i++){
+        if(diff>(arr[i+k-1]-arr[i]))
+            diff = arr[i+k-1]-arr[i];
+    }
+ return diff;
+}
