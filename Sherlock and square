@@ -1,0 +1,21 @@
+int squares(int a, int b) {
+    long count=0;
+    float s1=0,s2=0;
+for(int i=a;i<=b;i++){
+    float k= (i/sqrt(i));
+    if(k==sqrt(i)){
+        s1 = k;
+        break;}
+}
+for(int i=b;i>=a;i--){
+    float k= (i/sqrt(i));
+    if(k==sqrt(i)){
+        s2 = k;
+        break;}
+}
+if(s1!=s2 || (s1==s2 && s1!=0)){
+for(int i=s1;i<=s2;i++)
+    count++;
+}
+return count;
+}
